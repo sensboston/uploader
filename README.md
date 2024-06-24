@@ -115,3 +115,17 @@ Enter your username and password to authenticate.
 Choose a file to upload and click the "Upload" button.
 
 The uploaded files will be listed on the page, and you can delete them using the "Delete" button.
+
+![screenshot](https://github.com/sensboston/uploader/assets/1036158/5428672d-7dcc-4d7a-a96f-dfe578618c75)
+
+## Issues / TODO
+
+There are two unresoved (yet) issues with the app: 
+ - First, I suppose to use Python app, running as service, for the user authentication in the PHP scripts because I can't make the PAM PHP extension works 😒 Google's searches returned tonns of useless and non-working advises and suggestions; even ChatGPT can't resolve that issue. It looks like this module is deprecated but I can't find any working replacement.
+By the way, if I'll get PAM module working in PHP, Python app and auth.php will be replaced by very simple call:
+    ``` if (pam_auth($username, $password))``` 
+
+    BTW, I found a [third-party implementation](https://github.com/amishmm/php-pam) but haven't tried yet.
+
+ - Secondly, a very strange error occurs: if I use the authenticate function from the **auth.php** module in file_list.php (adding ```require_once 'auth.php';```), then the file list is not appearing on web page. Although the user is authenticated and **file_list.php** sends a list of files in JSON format. If I define this function (using copy&paste) in the **file_list.php** module itself, then everything works great.
+Perhaps this has something to do with PHP session - I'm not a big expert in PHP and web programming. If anyone can help solve this problem, I would be very grateful - I hate strange errors! 
