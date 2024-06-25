@@ -109,6 +109,11 @@ For simplicity, I'll use my current Ubuntu instance user name, you should replac
   sudo mkdir -p /var/www/html/uploader
   ```
 
+  ### Edit file config.php and adjust variables
+  ```
+  sudo nano /home/ubuntu/uploader/config.php
+  ```
+
   ### Copy all files to the folder created above:
   ```
   cd /home/ubuntu/uploader/
