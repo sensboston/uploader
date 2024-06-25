@@ -111,6 +111,7 @@ For simplicity, I'll use my current Ubuntu instance user name, you should replac
 
   ### Copy all files to the folder created above:
   ```
+  cd /home/ubuntu/uploader/
   sudo cp -r * /var/www/html/uploader
   ```
 
