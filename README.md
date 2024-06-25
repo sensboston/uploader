@@ -9,7 +9,14 @@ The application uses PHP and a Python authentication service running on Apache2.
 - PHP 8.1 or higher
 - Python 3
 - Required PHP extensions: `php-json`, `php-curl`
-- PAM authentication for Python
+
+Hint:
+```
+sudo apt update
+sudo apt install apache2
+sudo apt install php libapache2-mod-php
+sudo apt install python3
+```
 
 ## Installation
 
