@@ -103,9 +103,12 @@ For simplicity, I'll use my current Ubuntu instance user name, you should replac
   sudo passwd uploader
   sudo chown uploader:uploader /var/www/html/upload
   sudo chmod 755 /var/www/html/upload
-  sudo apt install acl
-  sudo setfacl -m u:uploader:rwx /var/www/html/upload
-  getfacl /var/www/html/upload
+  ```
+
+  ### Do not forget to add proper permissions to www-data (used for apache & php)
+  ```
+  sudo chown -R www-data:www-data /var/www/html/upload
+  sudo chmod -R 775 /var/www/html/upload
   ```
 
   ### Create application directory at webroot (or configure app/site):
