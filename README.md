@@ -67,6 +67,7 @@ For simplicity, I'll use my current Ubuntu instance user name, you should replac
 
   ### Enable and start the service:
   ```
+  sudo systemctl daemon-reload
   sudo systemctl enable flaskapp
   sudo systemctl start flaskapp
   sudo systemctl status flaskapp.service
@@ -94,13 +95,14 @@ For simplicity, I'll use my current Ubuntu instance user name, you should replac
   sudo chmod -R 755 /var/www/html/upload
   ```
 
-  ### Create a limited user for uploading files
+  ### Create a new  user for uploading files
   (please note, I don't recommend you to use your actual ssh-enabled user account):
 
   ```
-  sudo useradd -M -d /var/www/html/upload -s /usr/sbin/nologin uploader
+  sudo useradd -m -d /var/www/html/upload -s /bin/bash uploader
   sudo passwd uploader
   sudo chown -R uploader:www-data /var/www/html/upload
+  sudo chmod -R 755 /var/www/html/upload
   ```
 
   ### Create application directory at webroot (or configure app/site):
