@@ -15,13 +15,19 @@ The application uses PHP and a Python authentication service running on Apache2.
 
 For simplicity, I'll use my current Ubuntu instance user name, you should replace by yours.
 
-  ### Clone or download this repository
-
+  ### Clone 
    ```
    git clone https://github.com/yourusername/uploader.git
    cd uploader
    ```
-
+   ### or download this repository
+   ```
+   wget https://github.com/sensboston/uploader/archive/refs/heads/master.zip
+   unzip master.zip -d uploader
+   mv uploader/uploader-master/* uploader/
+   rm -r uploader/uploader-master
+   rm master.zip
+   ```
   ### Install Python prerequisites
 
   ```
