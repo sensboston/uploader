@@ -74,13 +74,13 @@ For simplicity, I'll use my current Ubuntu instance user name, you should replac
 
   ### Configure PHP
 
-  Ensure the following PHP settings are in your **php.ini**:
+  Ensure the following PHP settings are in your **/etc/php/8.1/apache2/php.ini**:
   ```
   log_errors = On
   error_log = /var/log/php_errors.log
   ```
   
-  Also check for max upload file/post size limits in **php.ini** (adjust to your needs, like 10G):
+  Also check for max upload file/post size limits in **/etc/php/8.1/apache2/php.ini** (adjust to your needs, like 10G):
   ```
   upload_max_filesize = 10M
   post_max_size = 10M
