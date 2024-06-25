@@ -148,7 +148,7 @@ The uploaded files will be listed on the page, and you can delete them using the
 ## Issues / TODO
 
 There are two unresoved (yet) issues with the app: 
- - First, I suppose to use Python app, running as service, for the user authentication in the PHP scripts because I can't make the PAM PHP extension works 😒 Google's searches returned tonns of useless and non-working advises and suggestions; even ChatGPT can't resolve that issue. It looks like this module is deprecated but I can't find any working replacement.
+ - First, I have to use a Python app (running as a service), for the user authentication in the PHP scripts because I can't make the PAM PHP extension works 😒 Google's searches returned tonns of useless and non-working advises and suggestions; even ChatGPT can't resolve that issue. It looks like this module is deprecated but I can't find any working replacement.
 By the way, if I'll get PAM module working in PHP, Python app and auth.php will be replaced by very simple call:
     ``` if (pam_auth($username, $password))``` 
 
