@@ -99,10 +99,13 @@ For simplicity, I'll use my current Ubuntu instance user name, you should replac
   (please note, I don't recommend you to use your actual ssh-enabled user account):
 
   ```
-  sudo useradd -m -d /var/www/html/upload -s /bin/bash uploader
+  sudo adduser --no-create-home --disabled-password --gecos "" uploader
   sudo passwd uploader
-  sudo chown -R uploader:www-data /var/www/html/upload
-  sudo chmod -R 755 /var/www/html/upload
+  sudo chown uploader:uploader /var/www/html/upload
+  sudo chmod 755 /var/www/html/upload
+  sudo apt install acl
+  sudo setfacl -m u:uploader:rwx /var/www/html/upload
+  getfacl /var/www/html/upload
   ```
 
   ### Create application directory at webroot (or configure app/site):
