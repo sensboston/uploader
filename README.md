@@ -118,14 +118,14 @@ For simplicity, I'll use my current Ubuntu instance user name, you should replac
   ```
 
   ### Edit file config.php and adjust variables
+  (web site name, time zone etc.)
   ```
   sudo nano /home/ubuntu/uploader/config.php
   ```
 
-  ### Copy all files to the folder created above:
+  ### Copy all app files (html, php & js) to the app folder:
   ```
-  cd /home/ubuntu/uploader/
-  sudo cp -r * /var/www/html/uploader
+  sudo cp /home/ubuntu/uploader/*.php /home/ubuntu/uploader/*.js /home/ubuntu/uploader/*.html /var/www/html/uploader/
   ```
 
   ### Restart Apache to apply changes:
