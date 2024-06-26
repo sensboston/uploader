@@ -22,7 +22,7 @@ For simplicity, I'll use my current Ubuntu instance user name, you should replac
 
   ### Clone 
    ```
-   git clone https://github.com/yourusername/uploader.git
+   git clone https://github.com/sensboston/uploader.git
    cd uploader
    ```
    ### or download this repository
@@ -73,6 +73,17 @@ For simplicity, I'll use my current Ubuntu instance user name, you should replac
   ```
   sudo nano /home/ubuntu/uploader/config.php
   ```
+  ### Edit file users.txt:
+  This file lists pseudo-users for upload access authentication, in the format **username:password**. 
+  These pseudo-users have **nothing to do** with Linux users and only serve as **an additional layer** of protection! 
+  Please **do not use your real login credentials** for this file!
+  Also, be sure to check if you copied the **.htaccess** file with content (that denies access to **users.txt** file)
+  ```
+  <Files "users.txt">
+    Order Allow,Deny
+    Deny from all
+  </Files>
+  ```
 
   ### Copy all app files (html, php & js) to the app folder:
   ```
@@ -97,4 +108,4 @@ The uploaded files will be listed on the page, and you can delete them using the
 ![screenshot](https://github.com/sensboston/uploader/assets/1036158/5428672d-7dcc-4d7a-a96f-dfe578618c75)
 
 ## Issues / TODO
-  - Add checking upload size before starting upload.
+  - Add JS check for upload file size, before starting actual upload.
