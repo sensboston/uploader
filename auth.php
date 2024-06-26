@@ -1,25 +1,27 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+session_start();
 
 $data = json_decode(file_get_contents('php://input'), true);
 $username = $data['username'];
 $password = $data['password'];
 
 function authenticate($username, $password) {
-    $url = 'http://localhost:7000/auth';
-    $data = json_encode(array("username" => $username, "password" => $password));
-    $options = array(
-        'http' => array(
-            'header'  => "Content-Type: application/json\r\n",
-            'method'  => 'POST',
-            'content' => $data,
-        ),
-    );
-    $context  = stream_context_create($options);
-    $result = file_get_contents($url, false, $context);
-    $response = json_decode($result, true);
+    $filename = 'users.txt';
+    $response = array('authenticated' => false);
+
+    if (!file_exists($filename)) {
+        return $response;
+    }
+
+    $lines = file($filename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        list($fileUser, $filePass) = explode(':', $line, 2);
+        if ($username === $fileUser && $password === $filePass) {
+            $response['authenticated'] = true;
+            break;
+        }
+    }
+
     return $response['authenticated'];
 }
 

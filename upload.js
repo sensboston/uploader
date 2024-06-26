@@ -51,7 +51,7 @@ document.getElementById('uploadFileForm').addEventListener('submit', async funct
             const endTime = Date.now();
             const uploadTime = (endTime - startTime) / 1000;
             const fileSize = fileInput.files[0].size;
-            const uploadRate = (fileSize / 1024 / uploadTime).toFixed(2);
+            const uploadRate = (fileSize / 1024 / uploadTime).toFixed(0);
 
             if (xhr.status === 200) {
                 statusMessage.innerHTML = `File <b>${fileInput.files[0].name}</b> successfully uploaded. Upload time: <b>${uploadTime.toFixed(2)}</b> seconds. Upload rate: <b>${uploadRate}</b> KBps.`;
@@ -73,32 +73,10 @@ document.getElementById('uploadFileForm').addEventListener('submit', async funct
     }
 });
 
-async function loadFileList() {
-    try {
-        const { username, password } = authCredentials;
-        console.log('Loading file list with credentials:', { username, password }); // Debugging
-        const response = await fetch('file_list.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, password }),
-        });
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const fileList = await response.json();
-        console.log('File list loaded:', fileList); // Debugging: Log the file list to the console
-        displayFileList(fileList);
-    } catch (error) {
-        console.error('Error loading file list:', error); // Debugging: Log any errors to the console
-    }
-}
-
 async function deleteFile(fileName) {
     const { username, password } = authCredentials;
     try {
-        const response = await fetch('file_list.php', {
+        const response = await fetch('getFileList.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -6,6 +6,28 @@ let sortFunctions = {
     'Upload Time': (a, b) => new Date(a.uploaded) - new Date(b.uploaded)
 };
 
+async function loadFileList() {
+    try {
+        const { username, password } = authCredentials;
+        console.log('Loading file list with credentials:', { username, password }); // Debugging
+        const response = await fetch('getFileList.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const fileList = await response.json();
+        console.log('File list loaded:', fileList); // Debugging: Log the file list to the console
+        displayFileList(fileList);
+    } catch (error) {
+        console.error('Error loading file list:', error); // Debugging: Log any errors to the console
+    }
+}
+
 function displayFileList(fileList) {
     const fileListContainer = document.getElementById('fileList');
     fileListContainer.innerHTML = '';

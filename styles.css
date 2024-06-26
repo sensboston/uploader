@@ -1,0 +1,84 @@
+.container {
+    margin-top: 10px;
+}
+.btn-upload {
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+.btn-upload:disabled {
+    background-color: gray;
+}
+.btn-choose-file {
+    background-color: #6c757d;
+    color: white;
+    border-radius: 5px;
+}
+.file-list {
+    margin-top: 10px;
+}
+.progress {
+    margin-top: 10px;
+    height: 20px; /* Narrow progress bar */
+    width: 100%;
+}
+.progress-bar {
+    height: 100%; /* Fill the entire height */
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+h2 {
+    font-size: 1.5em; /* Smaller font size */
+}
+.form-group {
+    margin-bottom: 5px; /* Reduce vertical space between form groups */
+}
+label {
+    font-size: 0.9em; /* Smaller font size */
+}
+.btn {
+    font-size: 0.9em; /* Smaller font size for buttons */
+}
+.align-items-center {
+    display: flex;
+    align-items: center;
+}
+.table th button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 0;
+}
+#loginForm, #uploadForm {
+    display: none;
+}
+.form-row {
+    align-items: flex-start; /* Align items by top */
+}
+.full-width {
+    width: 100%;
+}
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.btn-delete:hover {
+    background-color: #c82333;
+}
