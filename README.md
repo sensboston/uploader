@@ -1,7 +1,7 @@
 # File Uploader
 
 A simple file uploader application that allows authenticated users to upload, list, and delete files. 
-The application uses PHP and a Python authentication service running on Apache2.
+The application uses PHP, running on Apache2, Ubuntu (but definitely should work everything).
 
 ## Prerequisites
 
@@ -18,8 +18,6 @@ sudo apt install php libapache2-mod-php
 
 ## Installation
 
-For simplicity, I'll use my current Ubuntu instance user name, you should replace by yours.
-
   ### Clone 
    ```
    git clone https://github.com/sensboston/uploader.git
@@ -35,6 +33,7 @@ For simplicity, I'll use my current Ubuntu instance user name, you should replac
    ```
 
   ### Configure PHP
+  Note: adjust PHP version in paths
 
   Ensure the following PHP settings are in your **/etc/php/8.1/apache2/php.ini**:
   ```
@@ -99,7 +98,7 @@ For simplicity, I'll use my current Ubuntu instance user name, you should replac
 ## Usage
 Open your web browser and navigate to https://yourserveraddress/uploader
 
-Enter your username and password to authenticate.
+Enter username and password, stored in **user.txt** to authenticate.
 
 Choose a file to upload and click the "Upload" button.
 
