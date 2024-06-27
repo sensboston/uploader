@@ -52,7 +52,17 @@ foreach ($files as $file) {
     $fileSizeBytes = filesize($filePath);
     $fileDate = date(DATE_TIME_FORMAT, filemtime($filePath));
     $uploadDate = date(DATE_TIME_FORMAT, filectime($filePath));
-    $fileSizeFormatted = ($fileSizeBytes >= 1048576) ? sprintf("%.1f MB (%s bytes)", $fileSizeBytes / 1048576, number_format($fileSizeBytes)) : sprintf("%s bytes", number_format($fileSizeBytes));
+
+    if ($fileSizeBytes >= 1073741824) {
+        $fileSizeFormatted = sprintf("%.1f GB (%s bytes)", $fileSizeBytes / 1073741824, number_format($fileSizeBytes));
+    } elseif ($fileSizeBytes >= 1048576) {
+        $fileSizeFormatted = sprintf("%.1f MB (%s bytes)", $fileSizeBytes / 1048576, number_format($fileSizeBytes));
+    } elseif ($fileSizeBytes >= 1024) {
+        $fileSizeFormatted = sprintf("%.1f KB (%s bytes)", $fileSizeBytes / 1024, number_format($fileSizeBytes));
+    } else {
+        $fileSizeFormatted = sprintf("%s bytes", number_format($fileSizeBytes));
+    }
+
     $fileUrl = BASE_URL . rawurlencode($file);
     $fileList[] = [
         'name' => htmlspecialchars($file, ENT_QUOTES, 'UTF-8'),
