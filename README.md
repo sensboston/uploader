@@ -1,6 +1,6 @@
 # File Uploader
 
-A simple file uploader application that allows authenticated users to upload, list, and delete files. 
+A simple file uploader web app that allows authenticated users to upload, list, and delete files. 
 The application uses PHP, running on Apache2, Ubuntu (but definitely should work everythere).
 
 ## Prerequisites
